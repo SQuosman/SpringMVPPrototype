@@ -12,29 +12,26 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @UIScope
 @SpringView(name = GroupsView.VIEW_NAME)
-public class GroupsView extends GroupsViewDesign implements View{
-	public static final String VIEW_NAME = "Groups View";
+public class GroupsView extends TemplateDesign implements View{
+    public static final String VIEW_NAME = "Groups_View";
 
-	@Autowired
-	GroupsPresenter presenter;
+    @Autowired
+    GroupsPresenter presenter;
 
-	@PostConstruct
-	void init() {
-		groupsButton.addClickListener(this::buttonClick);
-		relationsButton.addClickListener(this::buttonClick);
-		presenter.setup(this);
-	}
+    @PostConstruct
+    void init() {
+        groupsButton.addClickListener(this::buttonClick);
+        relationsButton.addClickListener(this::buttonClick);
+        contentLabel.setValue("Groups");
+        presenter.setup(this);
+    }
 
-	public void setLabelValue(String text){
-		label1.setValue(text);
-	}
+    public void buttonClick(ClickEvent event) {
+        // TODO Button-Beschriftung bestimmt die Op - nicht so ideal
+        presenter.buttonClick(event.getButton().getCaption());
+    }
 
-	public void buttonClick(ClickEvent event) {
-		// TODO Button-Beschriftung bestimmt die Op - nicht so ideal
-		presenter.buttonClick(event.getButton().getCaption());
-	}
-
-	@Override
-	public void enter(ViewChangeEvent event) {
-	}
+    @Override
+    public void enter(ViewChangeEvent event) {
+    }
 }

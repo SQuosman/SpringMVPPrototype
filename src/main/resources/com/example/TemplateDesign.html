@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+ </head> 
+ <body> 
+  <vaadin-horizontal-layout style-name="valo-menu-responsive" responsive id="responsive-application-template" size-full> 
+   <vaadin-css-layout style-name="valo-menu"> 
+    <vaadin-css-layout style-name="valo-menu-part"> 
+     <vaadin-horizontal-layout style-name="valo-menu-title" width-full _id="menuTitle"> 
+      <vaadin-label size-auto _id="menuTitleLabel" :middle :expand> 
+       <span class="v-icon" style="font-family: FontAwesome;"></span> Open 
+       <strong>Conjurer</strong> 
+      </vaadin-label> 
+     </vaadin-horizontal-layout> 
+     <vaadin-button icon="fonticon://FontAwesome/f03a" style-name="primary small valo-menu-toggle" plain-text _id="menuToggle">
+       Menu 
+     </vaadin-button> 
+     <vaadin-css-layout style-name="valo-menuitems" _id="menuItems"> 
+      <vaadin-button icon="fonticon://FontAwesome/f0c0" primary-style-name="valo-menu-item" width-full plain-text _id="groupsButton">
+        Groups 
+      </vaadin-button> 
+      <vaadin-button icon="fonticon://FontAwesome/f07e" primary-style-name="valo-menu-item" _id="relationsButton">
+        Relations 
+      </vaadin-button> 
+      <vaadin-button icon="fonticon://FontAwesome/f03a" primary-style-name="valo-menu-item" _id="usersButton">
+        Users 
+      </vaadin-button> 
+      <vaadin-button icon="fonticon://FontAwesome/f019" primary-style-name="valo-menu-item" _id="appButton">
+        Applications 
+      </vaadin-button> 
+      <vaadin-button icon="fonticon://FontAwesome/f21b" primary-style-name="valo-menu-item" plain-text _id="authButton">
+        Authentification 
+      </vaadin-button> 
+      <vaadin-button icon="fonticon://FontAwesome/f0ad" primary-style-name="valo-menu-item" plain-text _id="structureButton">
+        Structure 
+      </vaadin-button> 
+     </vaadin-css-layout> 
+    </vaadin-css-layout> 
+   </vaadin-css-layout> 
+   <vaadin-vertical-layout spacing margin _id="content" :expand> 
+    <vaadin-label size-auto plain-text _id="contentLabel">
+      Label 
+    </vaadin-label> 
+   </vaadin-vertical-layout> 
+  </vaadin-horizontal-layout>  
+ </body>
+</html>

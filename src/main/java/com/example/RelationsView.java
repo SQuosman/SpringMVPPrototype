@@ -12,8 +12,8 @@ import com.vaadin.ui.Button.ClickEvent;
 
 @UIScope
 @SpringView(name = RelationsView.VIEW_NAME)
-public class RelationsView extends RelationsViewDesign implements View {
-    public static final String VIEW_NAME = "Relations View";
+public class RelationsView extends TemplateDesign implements View {
+    public static final String VIEW_NAME = "Relations_View";
 
     @Autowired
     RelationsPresenter presenter;
@@ -22,11 +22,8 @@ public class RelationsView extends RelationsViewDesign implements View {
     void init() {
         groupsButton.addClickListener(this::buttonClick);
         relationsButton.addClickListener(this::buttonClick);
+        contentLabel.setValue("Relations");
         presenter.setup(this);
-    }
-
-    public void setLabelValue(String text){
-        label2.setValue(text);
     }
 
     public void buttonClick(ClickEvent event) {
