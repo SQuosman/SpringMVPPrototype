@@ -13,27 +13,35 @@ import com.vaadin.ui.Button.ClickEvent;
 @UIScope
 @SpringView(name = RelationsView.VIEW_NAME)
 public class RelationsView extends TemplateDesign implements View {
-    public static final String VIEW_NAME = "Relations_View";
+	public static final String VIEW_NAME = "Relations_View";
 
-    @Autowired
-    RelationsPresenter presenter;
+	@Autowired
+	RelationsPresenter presenter;
 
-    @PostConstruct
-    void init() {
-        groupsButton.addClickListener(this::buttonClick);
-        relationsButton.addClickListener(this::buttonClick);
-        contentLabel.setValue("Relations");
-        presenter.setup(this);
-    }
+	@PostConstruct
+	void init() {
+		groupsButton.addClickListener(this::buttonClick);
+		relationsButton.addClickListener(this::buttonClick);
+		usersButton.addClickListener(this::buttonClick);
+		appButton.addClickListener(this::buttonClick);
+		authButton.addClickListener(this::buttonClick);
+		structureButton.addClickListener(this::buttonClick);
+		contentLabel.setValue("Relations");
+		presenter.setup(this);
+	}
 
-    public void buttonClick(ClickEvent event) {
-        // Button-Beschriftung bestimmt die Op - nicht so ideal vielleicht
-        presenter.buttonClick(event.getButton().getCaption());
-    }
+	public void buttonClick(ClickEvent event) {
+		// Button-Beschriftung bestimmt die Op - nicht so ideal vielleicht
+		presenter.buttonClick(event.getButton().getCaption());
+	}
 
-    @Override
-    public void enter(ViewChangeEvent event) {
+	public void setContentLabel(String text){
+		contentLabel.setValue(text);
+	}
 
-    }
+	@Override
+	public void enter(ViewChangeEvent event) {
+
+	}
 
 }

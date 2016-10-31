@@ -14,26 +14,29 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 class RelationsPresenter implements Presenter{
 
-    @Autowired
-    Model model;
+	@Autowired
+	Model model;
 
-    private RelationsView view;
+	private RelationsView view;
 
-    @Override
-    public void buttonClick(String operation) {
-        log.info("RelationsPresenter, Operation: " + operation);
-        if (operation.equals("Groups")) {
-            UI.getCurrent().getNavigator().navigateTo(GroupsView.VIEW_NAME);
-        }
-        if (operation.equals("Relations")) {
-            UI.getCurrent().getNavigator().navigateTo(RelationsView.VIEW_NAME);
-            UI.getCurrent().getNavigator().getCurrentView();
-        }
-    }
+	@Override
+	public void buttonClick(String operation) {
+		log.info("RelationsPresenter, Operation: " + operation);
+		if (operation.equals("Groups")) {
+			UI.getCurrent().getNavigator().navigateTo(GroupsView.VIEW_NAME);
+		}
+		if (operation.equals("Relations")) {
+			UI.getCurrent().getNavigator().navigateTo(RelationsView.VIEW_NAME);
+			UI.getCurrent().getNavigator().getCurrentView();
+		}
+		else {
+			view.setContentLabel(model.getContent() + " " + operation + " Button pressed");
+		}
+	}
 
-    @Override
-    public void setup(View v) {
-        view = (RelationsView) v;
-    }
+	@Override
+	public void setup(View v) {
+		view = (RelationsView) v;
+	}
 
 }

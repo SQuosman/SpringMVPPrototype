@@ -22,14 +22,17 @@ class GroupsPresenter implements Presenter{
 
 	@Override
 	public void buttonClick(String operation) {
-		// 3. Presenter führt die geforderte Operation mit Hilfe des Models aus
-		// und gibt das Ergebnis am ende der Methode an die View weiter
+		// Presenter führt die geforderte Operation (wenn nötig) mit Hilfe des Models aus
+		// und gibt das Ergebnis an die View weiter
 		log.info("GroupsPresenter, Operation: " + operation);
 		if (operation.equals("Goups")) {
 			UI.getCurrent().getNavigator().navigateTo(GroupsView.VIEW_NAME);
 		}
 		if (operation.equals("Relations")) {
 			UI.getCurrent().getNavigator().navigateTo(RelationsView.VIEW_NAME);
+		}
+		else {
+			view.setContentLabel(model.getContent() + " " + operation + " Button pressed");
 		}
 	}
 

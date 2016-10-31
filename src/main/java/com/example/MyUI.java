@@ -16,33 +16,34 @@ import com.vaadin.ui.VerticalLayout;
 @SpringUI
 public class MyUI extends UI{
 
-    @Autowired
-    private GroupsPresenter groupsPresenter;
+	@Autowired
+	private GroupsPresenter groupsPresenter;
 
-    @Autowired
-    private SpringViewProvider viewProvider;
+	@Autowired
+	private SpringViewProvider viewProvider;
 
-    @Override
-    protected void init(VaadinRequest request) {
+	@Override
+	protected void init(VaadinRequest request) {
 
-        final VerticalLayout root = new VerticalLayout();
-        root.setSizeFull();
-        root.setMargin(true);
-        root.setSpacing(true);
-        setContent(root);
+		final VerticalLayout root = new VerticalLayout();
+		root.setSizeFull();
+		root.setMargin(true);
+		root.setSpacing(true);
+		setContent(root);
 
-        // Container, in dem die eigentlichen Views dargestellt werden
-        final Panel viewContainer = new Panel();
-        viewContainer.setSizeFull();
-        root.addComponent(viewContainer);
-        root.setExpandRatio(viewContainer, 1.0f);
+		// Container, in dem die eigentlichen Views dargestellt werden
+		final Panel viewContainer = new Panel();
+		viewContainer.setSizeFull();
+		root.addComponent(viewContainer);
+		root.setExpandRatio(viewContainer, 1.0f);
 
-        Navigator navigator = new Navigator(this, viewContainer);
-        navigator.addProvider(viewProvider);
+		// Navigator und View Provider zum wechseln der Seite
+		Navigator navigator = new Navigator(this, viewContainer);
+		navigator.addProvider(viewProvider);
 
-        // Startansicht
-        navigator.navigateTo(GroupsView.VIEW_NAME);
-    }
+		// Startansicht
+		navigator.navigateTo(GroupsView.VIEW_NAME);
+	}
 
 
 }
